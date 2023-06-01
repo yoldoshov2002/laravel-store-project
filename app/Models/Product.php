@@ -4,13 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory,HasTranslations;
 
-    protected $fillable = ['category_id', 'name','price','description'];
+    protected $fillable = [
+    'category_id',
+     'name',
+     'price',
+     'description'
+    ];
 
+    public array $translatable = ['name','description'];
 
     public function category(){
 
@@ -20,5 +27,10 @@ class Product extends Model
 
     public function stocks(){
         return $this->hasMany(Stock::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
-use App\Http\Resources\ProductResource;
+use App\Models\DeliveryMethod;
+use App\Http\Requests\StoreDeliveryMethodRequest;
+use App\Http\Requests\UpdateDeliveryMethodRequest;
 
-class ProductController extends Controller
+class DeliveryMethodController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return ProductResource::collection(Product::cursorPaginate(25));
+        //
     }
 
     /**
@@ -28,7 +27,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(StoreDeliveryMethodRequest $request)
     {
         //
     }
@@ -36,16 +35,15 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(DeliveryMethod $deliveryMethod)
     {
-        return Product::with('stocks')->find($id);
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(DeliveryMethod $deliveryMethod)
     {
         //
     }
@@ -53,7 +51,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(UpdateDeliveryMethodRequest $request, DeliveryMethod $deliveryMethod)
     {
         //
     }
@@ -61,7 +59,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(DeliveryMethod $deliveryMethod)
     {
         //
     }

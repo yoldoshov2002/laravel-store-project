@@ -5,16 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Attribute extends Model
+class DeliveryMethod extends Model
 {
     use HasFactory;
 
 
     protected $fillable = [
-        "name"
+        'name',
+        'estimated_time',
+        'sum'
     ];
 
-    public function values(){
-       return $this->belongsTo(Value::class);
+
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }
